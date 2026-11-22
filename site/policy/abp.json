@@ -4,6 +4,11 @@
   "site": "donna-freed.author.sovereignweb.site",
   "repository": "SovereignWebsite/Site__Author__Donna-Freed",
   "owner": "The site's owner. Until ownership is handed over, Dinis Cruz.",
+  "hub": {
+    "listed": false,
+    "statement": "This site is not to be listed on the Sovereign Website hub. It carries no hub.json, and no agent may add one or add this site to a hub listing.",
+    "source": "Dinis Cruz, 22 November 2026, in sites.d@SovereignWebsite.dinis's brief for this site: \"This can be a public site, but not on the hub\"; and his yes in donna-freed.d's session on 22 November 2026 to put this in the policy."
+  },
   "source": "Dinis Cruz, 21 November 2026, 16:45 UTC, in conductor.b@SovereignWebsite.dinis's session: \"make sure that every site has an ABP policy and explanation of how it works and what it does\".",
   "roles": {
     "keeper": {
