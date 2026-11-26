@@ -7,7 +7,7 @@ S = pathlib.Path('site')
 HOST = 'https://donna-freed.author.sovereignweb.site'
 DESC = 'Writer and translator. Her books, her writing and her podcast.'
 NAV = [('/books/', 'Books'), ('/podcast/', 'Podcast'), ('/writing/', 'Writing'), ('/about/', 'About'), ('/questions/', 'Questions')]
-DESIGNS = [('1', 'Shelf', 'Ink blue and a shelf of book spines'), ('2', 'Memoir', 'Large italic titles on cream'), ('3', 'Studio', 'Dark and close, a microphone and a lamp'), ('4', 'Translator', 'Light type, hairlines and white'), ('5', 'Newsroom', 'Masthead rules, a byline')]
+DESIGNS = [('1', 'Shelf', 'Ink blue and a shelf of book spines'), ('2', 'Editorial', 'A literary magazine cover'), ('3', 'Voice', 'Warm colour and sound, for the podcast'), ('4', 'Archive', 'A typed file of records and stamps'), ('5', 'Poster', 'Bold type and blocks of colour')]
 def design_cards(big=False):
     li = ''.join(f'<li><a href="?design={n}" data-design="{n}"{" aria-current=\"true\"" if n == "1" else ""}><img src="/assets/shots/d{n}-640.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><strong>{n}. {t}</strong><span>{d}</span></a></li>' for n, t, d in DESIGNS)
     return f'<ul class="dcards{" big" if big else ""}">{li}</ul>'
@@ -66,6 +66,10 @@ def page(path, title, desc, body, kicker=None):
 <meta name="twitter:image" content="{HOST}/assets/share/card-1200x630.jpg">
 <link rel="canonical" href="{url}">
 <link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/designs/d2.css">
+<link rel="stylesheet" href="/assets/designs/d3.css">
+<link rel="stylesheet" href="/assets/designs/d4.css">
+<link rel="stylesheet" href="/assets/designs/d5.css">
 <script src="/assets/design.js"></script>
 </head>
 <body>
@@ -120,6 +124,12 @@ SHELF = f'''<nav class="shelf-wrap" aria-label="The books, shown as a shelf of s
 
 # ---------- written pages ----------
 page('/', 'Donna Freed', DESC, '''<section class="hero">
+<div class="deco" aria-hidden="true">
+<span class="deco-year">1996</span>
+<svg class="deco-wave" viewBox="0 0 400 400" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="200" cy="200" r="60" opacity=".7"/><circle cx="200" cy="200" r="110" opacity=".5"/><circle cx="200" cy="200" r="160" opacity=".3"/><circle cx="200" cy="200" r="198" opacity=".18"/></g><g fill="currentColor"><rect class="b" x="40" y="185.0" width="8" height="30" rx="4"/><rect class="b" x="56" y="170.0" width="8" height="60" rx="4"/><rect class="b" x="72" y="180.0" width="8" height="40" rx="4"/><rect class="b" x="88" y="155.0" width="8" height="90" rx="4"/><rect class="b" x="104" y="165.0" width="8" height="70" rx="4"/><rect class="b" x="120" y="135.0" width="8" height="130" rx="4"/><rect class="b" x="136" y="175.0" width="8" height="50" rx="4"/><rect class="b" x="152" y="115.0" width="8" height="170" rx="4"/><rect class="b" x="168" y="145.0" width="8" height="110" rx="4"/><rect class="b" x="184" y="160.0" width="8" height="80" rx="4"/><rect class="b" x="200" y="130.0" width="8" height="140" rx="4"/><rect class="b" x="216" y="170.0" width="8" height="60" rx="4"/><rect class="b" x="232" y="150.0" width="8" height="100" rx="4"/><rect class="b" x="248" y="180.0" width="8" height="40" rx="4"/><rect class="b" x="264" y="165.0" width="8" height="70" rx="4"/><rect class="b" x="280" y="185.0" width="8" height="30" rx="4"/><rect class="b" x="296" y="175.0" width="8" height="50" rx="4"/><rect class="b" x="312" y="190.0" width="8" height="20" rx="4"/><rect class="b" x="328" y="182.0" width="8" height="36" rx="4"/><rect class="b" x="344" y="188.0" width="8" height="24" rx="4"/><rect class="b" x="360" y="193.0" width="8" height="14" rx="4"/></g></svg>
+<span class="deco-stamp">Writer and translator</span>
+<span class="deco-block b1"></span><span class="deco-block b2"></span><span class="deco-block b3"></span>
+</div>
 <div class="hero-in">
 <div class="hero-head">
 <div class="kicker">Writer and translator</div>
