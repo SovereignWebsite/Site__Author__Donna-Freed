@@ -139,6 +139,7 @@ page('/', 'Donna Freed', DESC, '''<section class="hero">
 ''' + SHELF + '''
 </div>
 <div class="hero-lead">
+<figure class="portrait"><img src="/assets/donna-portrait.webp" width="452" height="678" alt="Portrait of Donna Freed: smiling, with curly auburn hair and red lipstick, in a black top with lace detail, against a dark background."><figcaption>Photograph supplied by Donna Freed, who owns the copyright; used with her permission.</figcaption></figure>
 <p class="lead">A New York native, a writer and a translator. Her translation of Kafka has been in print since 1996. She has written for The Oldie and the BBC, and co-presented the Radio Gorgeous podcast.</p>
 <p class="src">Source: <a href="/about/#sources">Jewish Book Council author profile</a>, read 22 November 2026.</p>
 <p class="buy"><a href="https://www.amazon.co.uk/Duplicity-Mothers-Secrets-Donna-Freed/dp/1739879430">Buy <em>Duplicity</em> now</a> <span>on Amazon UK, or see <a class="plain" href="/books/">all editions</a></span></p>
@@ -211,6 +212,7 @@ page('/writing/', 'Writing', 'Donna Freed has written for The Oldie and the BBC.
 
 page('/about/', 'About', 'What this site says about Donna Freed, and where each point comes from.', '''<div class="kicker">About</div>
 <h1>About Donna Freed</h1>
+<figure class="portrait"><img src="/assets/donna-portrait.webp" width="452" height="678" alt="Portrait of Donna Freed: smiling, with curly auburn hair and red lipstick, in a black top with lace detail, against a dark background."><figcaption>Photograph supplied by Donna Freed, who owns the copyright; used with her permission.</figcaption></figure>
 <p class="lead">Everything here is a claim from a public source, named below. It becomes her biography only when she writes or approves it.</p>
 <ul class="facts">
 <li>A native of New York, a writer and a translator. <span class="src">Jewish Book Council profile; Google Books author overview.</span></li>
@@ -228,7 +230,7 @@ page('/about/', 'About', 'What this site says about Donna Freed, and where each 
 <li><a href="https://books.apple.com/audiobook/id1721198948">Apple Books, Duplicity (audiobook)</a>, read 22 November 2026.</li>
 </ul>
 <h2>What is deliberately not here</h2>
-<p>No photograph, no contact details and nothing about her family or private life. She agreed to a public site; anything beyond her work goes on only if she gives it for the site. Her photographs will appear when she, or the photographer, gives permission in writing.</p>
+<p>No other photographs, no contact details and nothing about her family or private life. She agreed to a public site; anything beyond her work goes on only if she gives it for the site. Any further photographs will appear when she, or the photographer, gives permission in writing.</p>
 <h2>Not on the hub</h2>
 <p>This site is not listed on the Sovereign Website hub, by the owner's decision.</p>''')
 
