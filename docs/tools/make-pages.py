@@ -154,6 +154,7 @@ page('/books/', 'Books', 'Duplicity: My Mothers\' Secrets, and the Kafka transla
 <li id="paperback" class="ed-paper"><span class="fmt">Paperback</span><span class="when">July 2023</span></li>
 <li id="audiobook" class="ed-audio"><span class="fmt">Audiobook</span><span class="when">December 2023, read by the author</span></li>
 </ol>
+<p class="buy">Buy on Amazon UK: <a href="https://www.amazon.co.uk/Duplicity-Mothers-Secrets-Donna-Freed/dp/1739879430">hardback</a> <a href="https://www.amazon.co.uk/Duplicity-Mothers-Secrets-Donna-Freed-ebook/dp/B0BGQXQFN3">Kindle edition</a></p>
 <p class="src">Source: retailer and publisher listings, for example the <a href="https://www.theportobellobookshop.com/9781739638290">paperback at The Portobello Bookshop</a> (ISBN 9781739638290), the <a href="https://jewishbookcouncil.org/book/duplicity-my-mothers-secrets">Jewish Book Council page</a> and the <a href="https://books.apple.com/audiobook/id1721198948">audiobook on Apple Books</a>, all read 22 November 2026. Dates and edition details are to be confirmed with Donna. Some listings spell the title "My Mother's Secrets"; she should say which is right.</p>
 <p><strong>Her own words about the book:</strong> not yet supplied. This space is hers.</p>
 </div>

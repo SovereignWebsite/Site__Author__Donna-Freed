@@ -151,3 +151,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font:.8
 .episodes a{display:block;height:100%;padding:1.3rem 1.4rem 1.5rem;background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:6px;color:var(--fg);font:italic 1.35rem/1.3 var(--head);text-decoration:none;transition:transform .2s ease,border-color .2s ease}
 .episodes a:hover,.episodes a:focus-visible{transform:translateY(-4px);border-color:var(--accent)}
 @media (prefers-reduced-motion:reduce){.episodes a{transition:none}.episodes a:hover,.episodes a:focus-visible{transform:none}}
+/* buy links on the Books page */
+.buy{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem .8rem;margin:1.2rem 0;font:600 .9rem/1.3 var(--ui);color:var(--muted)}
+.buy a{display:inline-block;padding:.6rem 1.1rem;border-radius:999px;background:var(--accent);color:var(--bg);text-decoration:none}
+.buy a:hover,.buy a:focus-visible{background:var(--fg);color:var(--bg)}
