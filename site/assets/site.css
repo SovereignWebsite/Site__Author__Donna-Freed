@@ -144,3 +144,8 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font:.8
 /* decorative hooks on the home hero: hidden here; a design may show and style them (site/assets/designs/dN.css) */
 .deco{display:none}
 .portrait{margin:0 0 1.2rem;max-width:15rem}.portrait img{display:block;width:100%;height:auto;border-radius:.4rem}.portrait figcaption{font-size:.8rem;opacity:.75;margin-top:.4rem}
+/* portrait, design 1 (The shelf): a framed picture hung on the wall, lit from above, with a brass plate */
+:root:not([data-design]) .portrait,[data-design="1"] .portrait{position:relative;max-width:16rem;margin:.4rem 0 1.8rem;padding:0 0 .2rem}
+:root:not([data-design]) .portrait img,[data-design="1"] .portrait img{border-radius:1px;padding:.7rem;background:#efe5cf;border:.55rem solid #b88a3e;border-image:linear-gradient(135deg,#e8c778,#8a6a2d 45%,#d3ad66 70%,#6d5222) 1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.35),0 1.2rem 2rem rgba(0,0,0,.5),0 0 5rem rgba(230,180,108,.25)}
+:root:not([data-design]) .portrait::before,[data-design="1"] .portrait::before{content:"";position:absolute;left:50%;top:-1.1rem;width:60%;height:.45rem;transform:translateX(-50%);border-radius:0 0 50% 50%;background:radial-gradient(ellipse at 50% 0,#f7dca0,#b88a3e);box-shadow:0 .5rem 1.6rem 1rem rgba(247,220,160,.18)}
+:root:not([data-design]) .portrait figcaption,[data-design="1"] .portrait figcaption{width:max-content;max-width:100%;margin:.9rem auto 0;padding:.3rem .7rem;background:linear-gradient(#d9b86e,#a8803a);color:#2a1a0c;border-radius:2px;font:600 .68rem/1.4 var(--ui);letter-spacing:.04em;opacity:1;text-align:center}

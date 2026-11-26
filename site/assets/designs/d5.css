@@ -142,3 +142,8 @@
 :root[data-design="5"] footer :focus-visible{outline-color:var(--yellow);box-shadow:none}
 :root[data-design="5"] .site-links a{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.78rem}
 @media (prefers-reduced-motion:reduce){:root[data-design="5"] *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* portrait, design 5 (Poster): a red and black duotone (greyscale multiplied over the colour), hard blue shadow, black caption bar */
+:root[data-design="5"] .portrait{position:relative;isolation:isolate;max-width:17rem;margin:0 0 1.8rem;background:var(--red);border:var(--rule) solid var(--fg);box-shadow:.9rem .9rem 0 var(--blue)}
+:root[data-design="5"] .portrait img{border-radius:0;filter:grayscale(1) contrast(1.25) brightness(1.15);mix-blend-mode:multiply}
+:root[data-design="5"] .portrait figcaption{margin:0;padding:.5rem .7rem;background:var(--fg);color:var(--bg);font:800 .66rem/1.35 var(--ui);letter-spacing:.1em;text-transform:uppercase;opacity:1}

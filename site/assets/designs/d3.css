@@ -157,3 +157,10 @@
  [data-design="3"] .card,[data-design="3"] .episodes li{transition:none}
  [data-design="3"] .card:hover,[data-design="3"] .episodes li:hover{transform:none}
 }
+
+/* portrait, design 3 (Voice): a round crop (no stretching) in rippling sound rings */
+[data-design="3"] .portrait{max-width:15rem;margin:.2rem 0 1.8rem;padding:1.6rem 0 0}
+[data-design="3"] .portrait img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 18%;border-radius:50%;box-shadow:0 0 0 .6rem var(--hero-a,#ffdcb9),0 0 0 .85rem var(--hero-hot,#c8381f),0 0 0 1.5rem rgba(200,56,31,.28),0 0 0 2.3rem rgba(200,56,31,.14);animation:d3-pulse 4s ease-in-out infinite}
+[data-design="3"] .portrait figcaption{display:inline-block;margin-top:2rem;padding:.35rem .9rem;border-radius:999px;background:var(--chip-bg);color:var(--chip-fg);font:600 .72rem/1.4 var(--ui);opacity:1}
+@keyframes d3-pulse{50%{box-shadow:0 0 0 .6rem var(--hero-a,#ffdcb9),0 0 0 .85rem var(--hero-hot,#c8381f),0 0 0 1.9rem rgba(200,56,31,.2),0 0 0 3rem rgba(200,56,31,.08)}}
+@media (prefers-reduced-motion:reduce){[data-design="3"] .portrait img{animation:none}}
