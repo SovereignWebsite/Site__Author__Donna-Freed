@@ -7,7 +7,7 @@
   function apply(n, save) {
     html.setAttribute('data-design', n);
     if (save) { try { localStorage.setItem(KEY, n); } catch (e) {} }
-    var links = document.querySelectorAll('.designs a[data-design]');
+    var links = document.querySelectorAll('a[data-design]');
     for (var i = 0; i < links.length; i++) {
       if (links[i].getAttribute('data-design') === n) links[i].setAttribute('aria-current', 'true');
       else links[i].removeAttribute('aria-current');
@@ -15,11 +15,12 @@
   }
   function ready() {
     apply(pick || '1', false);
-    var links = document.querySelectorAll('.designs a[data-design]');
+    var links = document.querySelectorAll('a[data-design]');
     for (var i = 0; i < links.length; i++) {
-      links[i].addEventListener('click', function (ev) { ev.preventDefault(); apply(this.getAttribute('data-design'), true); });
+      links[i].addEventListener('click', function (ev) { ev.preventDefault(); apply(this.getAttribute('data-design'), true); var d = document.querySelector('details.chooser'); if (d) d.open = false; });
     }
   }
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { var d = document.querySelector('details.chooser[open]'); if (d) { d.open = false; d.querySelector('summary').focus(); } } });
   if (pick) html.setAttribute('data-design', pick);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
 })();

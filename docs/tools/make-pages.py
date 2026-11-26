@@ -7,7 +7,10 @@ S = pathlib.Path('site')
 HOST = 'https://donna-freed.author.sovereignweb.site'
 DESC = 'Writer and translator. Her books, her writing and her podcast.'
 NAV = [('/books/', 'Books'), ('/podcast/', 'Podcast'), ('/writing/', 'Writing'), ('/about/', 'About'), ('/questions/', 'Questions')]
-DESIGNS = [('1', 'Shelf'), ('2', 'Memoir'), ('3', 'Studio'), ('4', 'Translator'), ('5', 'Newsroom')]
+DESIGNS = [('1', 'Shelf', 'Ink blue and a shelf of book spines'), ('2', 'Memoir', 'Large italic titles on cream'), ('3', 'Studio', 'Dark and close, a microphone and a lamp'), ('4', 'Translator', 'Light type, hairlines and white'), ('5', 'Newsroom', 'Masthead rules, a byline')]
+def design_cards(big=False):
+    li = ''.join(f'<li><a href="?design={n}" data-design="{n}"{" aria-current=\"true\"" if n == "1" else ""}><img src="/assets/shots/d{n}-640.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><strong>{n}. {t}</strong><span>{d}</span></a></li>' for n, t, d in DESIGNS)
+    return f'<ul class="dcards{" big" if big else ""}">{li}</ul>'
 FAMILY = '''<details class="family-credit">
   <summary>Sovereign Website</summary>
   <ul>
@@ -39,7 +42,6 @@ def page(path, title, desc, body, kicker=None):
     url = HOST + path
     full = 'Donna Freed' if path == '/' else f'{title} | Donna Freed'
     nav = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if h == path else ""}>{t}</a>' for h, t in NAV)
-    des = ''.join(f'<li><a href="?design={n}" data-design="{n}"{" aria-current=\"true\"" if n == "1" else ""}>{n} {t}</a></li>' for n, t in DESIGNS)
     html = f'''<!doctype html>
 <html lang="en-GB">
 <head>
@@ -72,8 +74,14 @@ def page(path, title, desc, body, kicker=None):
 <header class="top">
   <a class="name" href="/">Donna Freed</a>
   <nav class="own" aria-label="This site">{nav}</nav>
+  <details class="chooser">
+    <summary>Choose a design</summary>
+    <div class="chooser-panel">
+      {design_cards()}
+      <p class="all"><a href="/designs/">All five, side by side</a></p>
+    </div>
+  </details>
 </header>
-<nav class="designs" aria-label="Choose a design"><span>Choose a design:</span><ul>{des}</ul></nav>
 <aside class="draft" aria-label="Draft notice"><strong>Draft for Donna's approval.</strong> Written by the site's agent from public sources, each named on <a href="/about/">About</a>. She has not yet seen it. Nothing here is in her own words until she says so.</aside>
 <main id="main">
 {body}
@@ -231,14 +239,8 @@ page('/questions/', 'Questions', 'What the site needs from Donna Freed.', '''<di
 
 page('/designs/', 'Designs', 'Five designs for the same site, and how to choose one.', '''<div class="kicker">Designs</div>
 <h1>Five designs, one site</h1>
-<p class="lead">Every page carries the same five choices. Pick one with the control at the top; your choice is kept in this browser only.</p>
-<div class="cards">
-<div class="card"><h2>1 Shelf</h2><p>Deep ink blue, a large serif and a shelf of book spines. The default.</p></div>
-<div class="card"><h2>2 Memoir</h2><p>Large italic titles on cream, with a bold berry accent.</p></div>
-<div class="card"><h2>3 Studio</h2><p>Dark and close, like a microphone and a lamp.</p></div>
-<div class="card"><h2>4 Translator</h2><p>Light type, hairlines and a lot of white, for a careful eye.</p></div>
-<div class="card"><h2>5 Newsroom</h2><p>Masthead rules and columns, for a writer's byline.</p></div>
-</div>
+<p class="lead">Every page carries the same five choices: the <strong>Choose a design</strong> button at the top. Pick one here or there; your choice is kept in this browser only.</p>
+'''+design_cards(True)+'''
 <p class="note">A design is the same words in a different dress. Without a script, design 1 shows. You can also open any page with <code>?design=3</code> on the end to share a choice.</p>''')
 
 # ---------- seeded pages: keep their text, give them the shared look and the control ----------
