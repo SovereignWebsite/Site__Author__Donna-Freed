@@ -7,7 +7,7 @@ S = pathlib.Path('site')
 HOST = 'https://donna-freed.author.sovereignweb.site'
 DESC = 'Writer and translator. Her books, her writing and her podcast.'
 NAV = [('/books/', 'Books'), ('/podcast/', 'Podcast'), ('/writing/', 'Writing'), ('/about/', 'About'), ('/questions/', 'Questions')]
-DESIGNS = [('1', 'Page'), ('2', 'Memoir'), ('3', 'Studio'), ('4', 'Translator'), ('5', 'Newsroom')]
+DESIGNS = [('1', 'Shelf'), ('2', 'Memoir'), ('3', 'Studio'), ('4', 'Translator'), ('5', 'Newsroom')]
 FAMILY = '''<details class="family-credit">
   <summary>Sovereign Website</summary>
   <ul>
@@ -86,12 +86,45 @@ def page(path, title, desc, body, kicker=None):
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html)
 
+
+def wave():
+    hs = [14, 22, 10, 26, 18, 30, 12, 24, 16, 28, 8, 20]
+    bars = ''.join(f'<rect x="{(32 - h) / 2}" y="{4 + i * 7}" width="{h}" height="3" rx="1.5"/>' for i, h in enumerate(hs))
+    return f'<svg viewBox="0 0 32 88" aria-hidden="true" focusable="false" fill="currentColor">{bars}</svg>'
+
+def mark():
+    return ('<svg viewBox="0 0 32 90" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">'
+            '<path d="M4 6h8M4 14h14M4 22h10M4 30h12M28 60h-8M28 68h-14M28 76h-10M28 84h-12"/>'
+            '<path d="M20 6C30 14 4 70 10 84" opacity=".7"/><path d="M18 14C28 24 6 62 14 76" opacity=".5"/></svg>')
+
+SHELF = f'''<nav class="shelf-wrap" aria-label="The books, shown as a shelf of spines">
+<div class="shelf">
+<div class="bookend" aria-hidden="true"></div>
+<a class="spine s-hard" href="/books/#hardback" aria-label="Duplicity, hardback edition"><span class="a" aria-hidden="true">Donna Freed</span><span class="t" aria-hidden="true">Duplicity</span><span class="e" aria-hidden="true">Hardback</span></a>
+<a class="spine s-paper" href="/books/#paperback" aria-label="Duplicity, paperback edition"><span class="a" aria-hidden="true">Donna Freed</span><span class="t" aria-hidden="true">Duplicity</span><span class="e" aria-hidden="true">Paperback</span></a>
+<a class="spine s-audio" href="/books/#audiobook" aria-label="Duplicity, audiobook edition"><span class="t" aria-hidden="true">Duplicity</span>{wave()}<span class="e" aria-hidden="true">Audiobook</span></a>
+<a class="spine s-kafka" href="/books/#kafka" aria-label="The Metamorphosis and Other Stories, Kafka, translated by Donna Freed"><span class="a" aria-hidden="true">Kafka</span><span class="t" aria-hidden="true">The Metamorphosis</span>{mark()}</a>
+<div class="bookend" aria-hidden="true"></div>
+</div>
+<div class="plank" aria-hidden="true"></div>
+</nav>
+<p class="shelf-note">Duplicity in three editions, and the Kafka translation. The spines are drawn for this site and are not the real book designs. Each one opens its section.</p>'''
+
 # ---------- written pages ----------
 page('/', 'Donna Freed', DESC, '''<section class="hero">
+<div class="hero-in">
+<div class="hero-head">
 <div class="kicker">Writer and translator</div>
-<h1>Donna Freed</h1>
+<h1><span>Donna</span> <span>Freed</span></h1>
+</div>
+<div class="hero-shelf">
+''' + SHELF + '''
+</div>
+<div class="hero-lead">
 <p class="lead">A New York native, a writer and a translator. Her translation of Kafka has been in print since 1996. She has written for The Oldie and the BBC, and co-presented the Radio Gorgeous podcast.</p>
 <p class="src">Source: <a href="/about/#sources">Jewish Book Council author profile</a>, read 22 November 2026.</p>
+</div>
+</div>
 </section>
 <div class="cards">
 <div class="card"><h2><a href="/books/">Books</a></h2><p><em>Duplicity: My Mothers' Secrets</em>, a memoir from Muswell Press, and her translation of Kafka's <em>The Metamorphosis and Other Stories</em>.</p></div>
@@ -101,15 +134,41 @@ page('/', 'Donna Freed', DESC, '''<section class="hero">
 <h2>About this draft</h2>
 <p>This is a first version, made so that Donna can see what a site of her own could be. The <a href="/designs/">five designs</a> above are five ways to read the same pages. Her photographs, her own words and the links she wants are what will make it hers; the <a href="/questions/">questions page</a> says what is needed.</p>''')
 
-page('/books/', 'Books', 'Duplicity: My Mothers\' Secrets, and the Kafka translation.', '''<div class="kicker">Books</div>
+page('/books/', 'Books', 'Duplicity: My Mothers\' Secrets, and the Kafka translation.', '''<div class="books-head">
+<div class="kicker">Books</div>
 <h1>Books</h1>
-<h2>Duplicity: My Mothers' Secrets</h2>
-<p>A memoir, published by Muswell Press: a hardback in November 2022, a paperback in July 2023, and an audiobook read by the author in December 2023.</p>
+</div>
+<div class="books-shelf">
+''' + SHELF + '''
+</div>
+<section class="book" id="duplicity" aria-labelledby="t-dup">
+<div class="book-title">
+<div class="kicker">A memoir</div>
+<h2 id="t-dup">Duplicity: My Mothers' Secrets</h2>
+<p class="pub">Muswell Press</p>
+</div>
+<div class="book-body">
+<p class="lead">A memoir, published by Muswell Press, in three editions.</p>
+<ol class="editions">
+<li id="hardback" class="ed-hard"><span class="fmt">Hardback</span><span class="when">November 2022</span></li>
+<li id="paperback" class="ed-paper"><span class="fmt">Paperback</span><span class="when">July 2023</span></li>
+<li id="audiobook" class="ed-audio"><span class="fmt">Audiobook</span><span class="when">December 2023, read by the author</span></li>
+</ol>
 <p class="src">Source: retailer and publisher listings, for example the <a href="https://www.theportobellobookshop.com/9781739638290">paperback at The Portobello Bookshop</a> (ISBN 9781739638290), the <a href="https://jewishbookcouncil.org/book/duplicity-my-mothers-secrets">Jewish Book Council page</a> and the <a href="https://books.apple.com/audiobook/id1721198948">audiobook on Apple Books</a>, all read 22 November 2026. Dates and edition details are to be confirmed with Donna. Some listings spell the title "My Mother's Secrets"; she should say which is right.</p>
 <p><strong>Her own words about the book:</strong> not yet supplied. This space is hers.</p>
-<h2>Translation: Kafka</h2>
-<p>She translated Franz Kafka's <em>The Metamorphosis and Other Stories</em>, in print since 1996, and listed as its translator in a Barnes &amp; Noble Classics edition.</p>
-<p class="src">Sources: <a href="https://www.jewishbookcouncil.org/donna-freed">Jewish Book Council author profile</a> and <a href="https://www.librarything.nl/author/freeddonna">LibraryThing</a>, read 22 November 2026.</p>''')
+</div>
+</section>
+<section class="book" id="kafka" aria-labelledby="t-kafka">
+<div class="book-title">
+<div class="kicker">In print since 1996</div>
+<h2 id="t-kafka">Translation: Kafka</h2>
+<div class="year" aria-hidden="true">1996</div>
+</div>
+<div class="book-body">
+<p class="lead">She translated Franz Kafka's <em>The Metamorphosis and Other Stories</em>, in print since 1996, and listed as its translator in a Barnes &amp; Noble Classics edition.</p>
+<p class="src">Sources: <a href="https://www.jewishbookcouncil.org/donna-freed">Jewish Book Council author profile</a> and <a href="https://www.librarything.nl/author/freeddonna">LibraryThing</a>, read 22 November 2026.</p>
+</div>
+</section>''')
 
 page('/podcast/', 'Podcast', 'Radio Gorgeous, the podcast Donna Freed has co-presented.', '''<div class="kicker">Podcast</div>
 <h1>Radio Gorgeous</h1>
@@ -117,7 +176,7 @@ page('/podcast/', 'Podcast', 'Radio Gorgeous, the podcast Donna Freed has co-pre
 <p class="src">Source: <a href="https://www.jewishbookcouncil.org/donna-freed">Jewish Book Council author profile</a>, read 22 November 2026.</p>
 <h2>Some conversations</h2>
 <p>Examples of episodes listed under her name on a podcast directory, read 22 November 2026:</p>
-<ul>
+<ul class="episodes">
 <li><a href="https://de.player.fm/series/radio-gorgeous/donna-freed-with-polly-samson-author-of-a-theatre-of-dreamers">Donna Freed with Polly Samson, author of A Theatre for Dreamers</a></li>
 <li><a href="https://de.player.fm/series/radio-gorgeous/donna-freed-with-wanda-whiteley-author-of-the-goldhanger-dog">Donna Freed with Wanda Whiteley, author of The Goldhanger Dog</a></li>
 <li><a href="https://de.player.fm/series/radio-gorgeous/part-2-donna-freed-with-christina-ford-author-of-in-search-of-mr-darcy">Part 2: Donna Freed with Christina Ford, author of In Search of Mr Darcy</a></li>
@@ -172,7 +231,7 @@ page('/designs/', 'Designs', 'Five designs for the same site, and how to choose 
 <h1>Five designs, one site</h1>
 <p class="lead">Every page carries the same five choices. Pick one with the control at the top; your choice is kept in this browser only.</p>
 <div class="cards">
-<div class="card"><h2>1 Page</h2><p>Warm paper, a book-like serif, quiet and readable.</p></div>
+<div class="card"><h2>1 Shelf</h2><p>Deep ink blue, a large serif and a shelf of book spines. The default.</p></div>
 <div class="card"><h2>2 Memoir</h2><p>Large italic titles on cream, with a bold berry accent.</p></div>
 <div class="card"><h2>3 Studio</h2><p>Dark and close, like a microphone and a lamp.</p></div>
 <div class="card"><h2>4 Translator</h2><p>Light type, hairlines and a lot of white, for a careful eye.</p></div>
